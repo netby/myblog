@@ -8,7 +8,10 @@
         @slot('active') Active Page @endslot
   @endcomponent
   <hr />
-  <a href="{{route('admin.category.create')}}" class="btn btn-primary pull-right"><i class="fa fa-plus-square-o">Create Category</i></a>
+
+      <a href="{{route('admin.category.create')}}" class="btn mb-3 btn-primary btn-sm float-right"><i class="fa fa-plus-square-o">Create Category</i></a>
+
+
   <table class="table table-striped">
     <thead>
       <th>Name</th>
