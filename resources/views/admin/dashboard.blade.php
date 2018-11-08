@@ -25,15 +25,15 @@
     </div>
     <div class="row">
       <div class="col-sm-6">
-        <a class="btn btn-block btn-default" href="#">Create Category</a>
-        <a class="list-group-item" href="#">
+        <a class="btn btn-block btn-default" href="{{route('admin.category.create')}}">Create Category</a>
+        <a class="list-group-item" href="{{route('admin.category.index')}}">
           <h4 class="list-group-item-heading">Fearst Category</h4>
           <p class="list-group-item-text">Count pages</p>
         </a>
       </div>
       <div class="col-sm-6">
-        <a class="btn btn-block btn-default" href="#">Create Page</a>
-        <a class="list-group-item" href="#">
+        <a class="btn btn-block btn-default" href="{{route('admin.article.create')}}">Create Page</a>
+        <a class="list-group-item" href="{{route('admin.article.index')}}">
           <h4 class="list-group-item-heading">Fearst Pages</h4>
           <p class="list-group-item-text">Category</p>
         </a>

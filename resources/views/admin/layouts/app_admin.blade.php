@@ -44,7 +44,7 @@
                               <a class="nav-link" href="{{route('admin.category.index')}}">Category</a>
                             </li>
                             <li>
-                              <a  class="nav-link" href="#">Pages</a>
+                              <a  class="nav-link" href="{{route('admin.article.index')}}">Pages</a>
                             </li>
 
                           </ul>
@@ -87,7 +87,12 @@
 
         <main class="py-4">
             @yield('content')
+
+
         </main>
     </div>
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('/vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
 </body>
 </html>

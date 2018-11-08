@@ -17,7 +17,7 @@ class CategoryController extends Controller
     {
         //Show all Category
         return  view ('admin.categories.index', [
-          'categories'=> Category::paginate (10)
+          'categories'=> Category::paginate (10),
         ]);
     }
 
@@ -68,7 +68,12 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        //Edit category
+        return view ('admin.categories.edit', [
+            'category'  => $category,
+            'parent'       =>$category->where('id', $category->parent_id)->get(),
+            'categories'=> Category::with('children')->where('parent_id', '0')->get(),
+            'delimiter' => '']);
     }
 
     /**
@@ -80,7 +85,9 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        //Update category
+        $category->update($request->except('slug'));
+        return redirect()->route('admin.category.index');
     }
 
     /**
@@ -89,8 +96,19 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(Request $request, Category $category)
     {
-        //
+        //delete category
+        $childrens =  Category::with('children')->where('parent_id', $category->id)->get();
+        if (count($childrens)>0){
+            return redirect()->route('admin.category.index')->with('status', 'In the category "'.$category->title.'" there is childrens');
+        }else{
+            $category->delete();
+            return redirect()->route('admin.category.index');
+        }
+
+
+
+
     }
 }
