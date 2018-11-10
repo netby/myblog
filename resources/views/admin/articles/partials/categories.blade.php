@@ -1,7 +1,8 @@
+
 @foreach($categories as $category)
     <option value="{{$category->id or ''}}"
         @isset($article->id)
-            @foreach ($article->$categories as $category_article)
+            @foreach ($article->categories as $category_article)
                 @if ($category->id == $category_article->id)
                     selected="selected"
                 @endif

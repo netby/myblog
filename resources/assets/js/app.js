@@ -5,13 +5,14 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+//require('./bootstrap');
 
-$(document).ready(functions()){
-    CKEDITOR.replace( 'description_short' );
-    CKEDITOR.replace( 'description' );
-}
 
+$( document ).ready(function() {
+    if ($('#description').length > 0) {
+        CKEDITOR.replace('description_short');
+        CKEDITOR.replace('description');
+    }});
 window.Vue = require('vue');
 
 /**

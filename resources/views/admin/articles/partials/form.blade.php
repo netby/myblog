@@ -9,7 +9,7 @@
     @endif
 </select>
 <label for="">Name</label>
-<input type="text" class="form-control" name="title" placeholder="Name of category" value="{{$article->title or ""}}" required>
+<input type="text" class="form-control" name="title" placeholder="Title of page" value="{{$article->title or ""}}" required>
 <label for="">Slug (unique)</label>
 <input type="text" class="form-control" name="slug" placeholder="slug" value="{{$article->slug or ""}}" readonly="">
 <label for="">Parent category</label>
