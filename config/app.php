@@ -149,6 +149,9 @@ return [
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Unisharp\Ckeditor\ServiceProvider::class,
 
+        //top Menu provider
+        App\Providers\BlogServiceProvider::class,
+
         /*
          * Package Service Providers...
          */
