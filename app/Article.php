@@ -16,6 +16,6 @@ class Article extends Model
         $this->attributes['slug'] = Str::slug( mb_substr($this->title, 0, 40) . "-" . \Carbon\Carbon::now()->format('dmyHi'), '-');
     }
     public function scopeLastArticles ($query, $count){
-        return $query->orderBy('created_at', 'desc')->take($count)->get();
+        return $query->orderBy('created_at', 'desc')->take($count)->where('meta_keyword' , 'C92FXnGyYOFb1RuZ30v8Qx4UPFtDE7rwky1KGCEd7SlaplXR8f06HxIyJAbI3gsNuGv4xj8N5qHXMoPyXzEvYwfmpV6fB5NhFn7L')->get();
     }
 }

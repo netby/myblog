@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\SiteSetting;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $data = SiteSetting::where('setting_page', 'home')->pluck('setting_value', 'setting_name');
+        return view('blog.home', [ 'title'=> $data['Title'], 'description' =>  $data['Description']]);
     }
 }
