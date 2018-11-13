@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Session;
+use \Illuminate\Support\Facades\URL;
 
 class RegisterController extends Controller
 {
@@ -28,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -46,6 +48,18 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
+    public function showRegistrationForm()
+    {
+        Session::put('url.intended',URL::previous());
+        return view('auth.register');
+    }
+    public function redirectTo (){
+        if (Session::has('url.intended')){
+            $intended_url = Session::get('url.intended', url('/'));
+            Session::forget('url.intended');
+            return $intended_url;
+        }
+    }
     protected function validator(array $data)
     {
         return Validator::make($data, [
